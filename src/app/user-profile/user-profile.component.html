@@ -1,0 +1,30 @@
+<div class="container py-3">
+  <div class="row">
+    <div class="col-md-12 container">
+      <h5 class="text-primary">Profile</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div><img *ngIf="user?.profileImage" src="{{ user?.profileImage }}" class="photo-graph" /></div>
+      <div class="d-flex">
+        <input id="photoFile" type="file" (change)="onFileSelected($event)" class="d-none" />
+        <label for="photoFile" class="btn btn-sm btn-warning mt-3">Edit Photo</label>
+        <button class="btn btn-sm btn-warning mt-3 ml-2" (click)="onEdit()">Edit Profile</button>
+      </div>
+    </div>
+    <div class="col-7">
+      <!-- <p>{{ user | json }}</p> -->
+      <p *ngIf="user?.firstName">
+        I'm <span class="font-bold text-primary text-capitalize"> {{ user.firstName }} {{ user.lastName }} </span>and Im
+        above {{ user.age }} years and you can send your emails to
+        <a class="text-primary" href="mailto:{{ user.email }}">{{ user.email }}</a
+        >.I live in the {{ user.state }} of {{ user.country }}. I like to {{ user.interests }}. And please send me
+        newsletter. Please reach out to me on
+        <a class="text-primary" href="tel:{{ user.p_number }}">{{ user.p_number }}</a
+        >.
+      </p>
+      <button class="btn btn-success mt-3">I Agree</button>
+    </div>
+  </div>
+</div>
